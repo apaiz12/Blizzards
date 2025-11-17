@@ -1,0 +1,21 @@
+## Implement Profile Class
+Attributes: name, major, minor, schedule
+Methods: update_schedule()
+
+Implement StudySession Class
+Attributes: proposer, time, place, topic, status
+Methods: invite(), confirm(), cancel()
+
+Implement InviteLogic Class (inherits from StudySession)
+Additional attribute: accept/decline
+Methods: accept_invite(), decline_invite()
+
+Implement AutoCancel Job (inherits from StudySession)
+Auto-cancels after X hours
+Notifies buddies of cancellation
+
+Implement FlashcardGenerator Class
+Attributes: syllabus
+Method: generate(start_date, end_date)
+Output: list of flashcards for the study session
+Note: Flashcards should be generated only for topics between DATE1..DATE2 before the session.
