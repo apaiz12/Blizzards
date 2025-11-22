@@ -13,4 +13,16 @@ def test_profile_creation_and_methods():
     #test update_schedule method
     Sam.update_schedule({"Monday": ["9AM", "2PM"], "Wednesday": ["11AM"]})
     assert Sam.schedule == {"Monday": ["9AM", "2PM"], "Wednesday": ["11AM"]}
-    print("Profile creation and methods test passed.")
+    #test __str__ method
+    profile_str = str(Sam)
+    assert "Sam" in profile_str
+    #Test empty schedule update
+    Sam.update_schedule({})
+    assert Sam.schedule == {}
+    #test constructor overwirtes old data
+    Sam.name = "Samuel"
+    assert Sam.name == "Samuel"
+    Sam.major = "Math"
+    assert Sam.major == "Math"
+    Sam.minor = "Computer Science"
+    assert Sam.minor == "Computer Science"  
