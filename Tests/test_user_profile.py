@@ -14,7 +14,12 @@ def test_profile_creation_and_methods():
 def test_update_schedule():
     Sam.update_schedule({"Monday": ["9AM", "2PM"], "Wednesday": ["11AM"]})
     assert Sam.schedule == {"Monday": ["9AM", "2PM"], "Wednesday": ["11AM"]}
-    
+    assert isinstance(Sam.schedule, dict)
+    assert "Monday" in Sam.schedule
+    assert Sam.schedule["Monday"] == ["9AM", "2PM"]
+    assert "Wednesday" in Sam.schedule
+    assert Sam.schedule["Wednesday"] == ["11AM"]
+
 def test_empty_schedule_update_and_modification():
     #Test empty schedule update
     Sam.update_schedule({})
