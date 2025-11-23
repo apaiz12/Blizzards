@@ -35,12 +35,14 @@ def main():
     p5 = Profile("Casey", "Art", "Design", "Unknown")
     profiles = [p1, p2, p3, p4, p5]
     for profile in profiles:
-        print(profile)
-        Profile.update_schedule(profile, {"Friday": ["10AM"]})
-        print("Updated schedule:", profile.schedule)
-        print("-" * 40)
+        if profile.Major == "Art":
+            profile.update_schedule({"Tuesday": ["1PM", "3PM"]})
+    print(profile)
+    Profile.update_schedule(profile, {"Friday": ["10AM"]})
+    print("Updated schedule:", profile.schedule)
+    print("-" * 40)
     
-    
+
 
 
 if __name__ == "__main__":
