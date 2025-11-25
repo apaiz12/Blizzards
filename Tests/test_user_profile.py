@@ -75,3 +75,42 @@ def test_output_events(self):
         self.assertEqual(today_event.what, "Today's Topic")
         self.assertEqual(past_event.what, "Old Topic")
         self.assertEqual(future_event.what, "Future Topic")
+        
+def test_update_schedule_single_event(self):
+        p = Profile("Sam", "CIS", "Math")
+
+        e1 = Event("Loops", datetime(2024, 9, 10))
+        e2 = Event("Trees", datetime(2024, 9, 12))
+
+        p.schedule = [e1]
+
+        updated = p.update_schedule(0, e2)
+        self.assertTrue(updated)
+        self.assertEqual(p.schedule[0].what, "Trees")
+
+def test_update_schedule_duplicate_datetime_prevented(self):
+        p = Profile("Sam", "CIS", "Math")
+
+        e1 = Event("Loops", datetime(2024, 9, 10))
+        e2 = Event("Trees", datetime(2024, 9, 10))  # same datetime
+
+        p.schedule = [e1]
+
+        updated = p.update_schedule(0, e2)
+        self.assertFalse(updated)
+        self.assertEqual(p.schedule[0], e1)
+
+def test_change_major(self):
+        p = Profile("Sam", "CIS", "Math")
+        p.change_major("Biology")
+        self.assertEqual(p.major, "Biology")
+
+def test_no_duplicate_events(self):
+        p = Profile("Sam", "CIS", "Math")
+
+        e1 = Event("Loops", datetime(2024, 9, 10))
+        e2 = Event("Trees", datetime(2024, 9, 10))  # duplicate datetime
+
+        p.schedule = [e1, e2]
+
+        self.assertTrue(p.has_duplicate_events())
