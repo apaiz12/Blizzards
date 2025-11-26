@@ -25,6 +25,11 @@ def print_welcome_banner():
     print(banner)
 
 def remove_two_sessions(session, profileA, profileB):
+    removed = session.remove(profileA, profileB)
+    if removed:
+        print(f"Removed session on {session.topic} from one or both profiles' schedules.")
+    else:
+        print("Session not found in either profile's schedule.")
 
 def main():
     print (print_welcome_banner())
