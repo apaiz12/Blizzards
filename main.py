@@ -61,6 +61,8 @@ def main():
     for i in range(33):
         session = StudySession(proposer=f"User{i}", time=random.choice(times), place=random.choice(places),topic=random.choice(topics), status="pending")
         sessions.append(session)
+    for s in sessions:
+        print(f"{s.proposer} scheduled {s.topic} at {s.place} ({s.time})")
 
 
 
