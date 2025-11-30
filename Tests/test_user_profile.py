@@ -102,6 +102,25 @@ class TestProfile(unittest.TestCase):
     def test_sort_empty_schedule(self):
         p = Profile("Lonzo", "CIS", "Math")
         self.assertEqual(p.sort_study_sessions(), [])
+        
+    def test_count_availability_by_hour(self):
+        p1 = Profile("Sam", "CIS", "Math")
+        p2 = Profile("Alex", "CE", "Physics")
 
+        p1.schedule = [
+            Event("Study", datetime(2025, 1, 1, 10, 0)),
+            Event("Lab", datetime(2025, 1, 1, 14, 0))
+        ]
+
+        p2.schedule = [
+            Event("Meeting", datetime(2025, 1, 1, 10, 30))
+        ]
+
+        counts = Profile.count_availability_by_hour([p1, p2])
+
+        self.assertEqual(counts[10], 2)
+        self.assertEqual(counts[14], 1)
+
+    
 if __name__ == '__main__':
     unittest.main()
