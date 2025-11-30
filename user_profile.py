@@ -125,4 +125,25 @@ class Profile:
             if session.time >= current_time
         ]
         return sorted(upcoming, key=lambda s: s.time)
+    
+    @staticmethod
+    def count_availability_by_hour(profiles):
+        """
+        Returns a dictionary {hour: count}.
+        Uses only simple loops and basic dict operations.
+        """
+        hour_counts = {}
+
+        for profile in profiles:
+            for event in profile.schedule:
+                hour = event.when.hour
+
+                # If hour not in dictionary yet, start at 0
+                if hour not in hour_counts:
+                    hour_counts[hour] = 0
+
+                # Increase count
+                hour_counts[hour] += 1
+
+        return hour_counts
 
