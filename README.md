@@ -24,5 +24,12 @@ Prioritized Projects:
 5. CPSC Friends
 6. CPSC Events
 
-#Project's Purpose
+# Project's Purpose
 CPSC Study Buddies is designed to help CS/CIS/BINF students and faculty coordinate study sessions, manage schedules, and prepare with auto‑generated flashcards.
+
+# Contributors
+- Robin Hall (Lead) 
+- Alina Paiz (Designer)
+- Samuel Maxey (SWE)
+- Lonzo Hamilton (Tester)
+
