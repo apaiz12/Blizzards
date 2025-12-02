@@ -33,3 +33,18 @@ CPSC Study Buddies is designed to help CS/CIS/BINF students and faculty coordina
 - Samuel Maxey (SWE)
 - Lonzo Hamilton (Tester)
 
+# How to Build, Run, Test all the code from the CLI
+## Build and Run
+
+All commands should be able to run in a terminal
+
+### Run the Driver
+ $python main.py
+
+### Run All Tests
+To run all tests using Python’s unittest discovery:
+ $python -m unittest discover -s tests
+
+
+
+
